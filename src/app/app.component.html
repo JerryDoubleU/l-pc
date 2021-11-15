@@ -1,0 +1,14 @@
+<div class="layout">
+  <component-list></component-list>
+  <the-canvas></the-canvas>
+</div>
+<draggable-component *ngIf="dragService.draggedElementData$ | async as data"
+                     class="dragged-element"
+                     [style]="data.positionStyle"
+                     [elementDefinition]="data.elementDefinition"></draggable-component>
+<div *ngIf="dragService.targetHighlight$ | async as data"
+     class="drag-highlight"
+     [style]="data.highlightStyle"
+     [class.box]="data.highlightType === 'box'"
+     [class.line]="data.highlightType === 'line'">
+</div>
